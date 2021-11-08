@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package sitesurvey;
+
+option go_package = "./sitesurveypb";
+
+service Survey {
+  rpc SendSurvey (SurveyRequest) returns (SurveyReply) {}
+}
+
+message SurveyRequest {}
+
+message SurveyReply {
+  repeated OneReceive receive = 1;
+}
+
+message OneReceive {
+  string body = 1;
+  string error = 2;
+}
